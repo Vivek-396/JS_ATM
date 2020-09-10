@@ -1,1 +1,22 @@
+body, h1{
+    margin: 0;
+}
 
+.deposit-header{
+    text-align: center;
+    padding: 4%;
+    font-size: 2rem;
+    color: cadetblue;
+}
+
+.deposit-main{
+    text-align: center;
+}
+
+.deposit-label{
+
+}
+
+.deposit-input{
+
+}
