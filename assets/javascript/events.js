@@ -6,12 +6,12 @@ var note_2000 = 0,
 //Deposit Section
 
 function get_amount(){
-    var a=(document.getElementById("note_2000").value);
-    var b=(document.getElementById("note_500").value);
-    var c=(document.getElementById("note_100").value);
-    var x=Number(a);
-    var y=Number(b);
-    var z=Number(c);
+    var a=(document.getElementById("note_2000"));
+    var b=(document.getElementById("note_500"));
+    var c=(document.getElementById("note_100"));
+    var x=Number(a.value);
+    var y=Number(b.value);
+    var z=Number(c.value);
     if(isNaN(x) || !Number.isInteger(x) || isNaN(y) || !Number.isInteger(y) || isNaN(z) || !(Number.isInteger(z)) || x<0 || y<0 || z<0){
         document.getElementById("amount").innerHTML= "Please enter a  valid number";
     }
@@ -25,9 +25,9 @@ function get_amount(){
         "Total 500Rs. Note is :" + note_500 +"<br>"+
         "Total 100Rs. Note is :" + note_100 +"<br>"+
         "Total amount is:" + balance;
-        a=null;
-        b=null;
-        c=null;
+        a.value=null;
+        b.value=null;
+        c.value=null;
     }
 }
 
