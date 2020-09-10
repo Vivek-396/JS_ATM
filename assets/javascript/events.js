@@ -13,12 +13,12 @@ function get_amount(){
         note_2000+=a;
         note_500+=b;
         note_100+=c;
-        sum = (2000*note_2000) + (500*note_500) + (100*note_100);
+        balance = (2000*note_2000) + (500*note_500) + (100*note_100);
         document.getElementById("amount").innerHTML=
         "Total 2000Rs. Note is :" + note_2000 +"<br>"+
         "Total 500Rs. Note is :" + note_500 +"<br>"+
         "Total 100Rs. Note is :" + note_100 +"<br>"+
-        "Total amount is:" + sum;
+        "Total amount is:" + balance;
         document.getElementById("note_2000").value=0;
         document.getElementById("note_500").value=0;
         document.getElementById("note_100").value=0;
