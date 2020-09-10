@@ -39,14 +39,15 @@ function getInputAmount() {
     var amt = document.getElementById("myInput").value;
 
     var amtTemp = parseInt(amt);
+    var element = document.getElementById("result");
     if (amt <= 0) {
-        document.getElementById("result").innerHTML = "Please enter suitable value.";
+        element.innerHTML = "Please enter suitable value.";
     } else if (amtTemp != amt) {
-        document.getElementById("result").innerHTML = "Cannot proceed transaction for the input amount.";
+        element.innerHTML = "Cannot proceed transaction for the input amount.";
     } else {
 
         if (amt > balance) {
-            document.getElementById("result").innerHTML = "Cannot proceed transaction due to low balance.";
+            element.innerHTML = "Cannot proceed transaction due to low balance.";
         } else {
             var count_2000 = note_2000,
                 count_500 = note_500,
@@ -76,14 +77,17 @@ function getInputAmount() {
             }
 
             if (val == 0) {
+                balance = balance - amt;
+
+                element.innerHTML = "Transaction Successful." + "<br> Your current balance is : " + balance + "<br>Notes of Rs 2000: " +
+                    (note_2000 - count_2000) + "<br>Notes of Rs 500: " + (note_500 - count_500) + "<br>Notes of Rs 100: " +
+                    (note_100 - count_100);
+
                 note_2000 = count_2000;
                 note_500 = count_500;
                 note_100 = count_100;
-                balance = balance - amt;
-
-                document.getElementById("result").innerHTML = "Transaction Successful." + "<br> Your current balance is : " + balance;
             } else {
-                document.getElementById("result").innerHTML = "Cannot proceed transaction due to unavailability of notes.";
+                element.innerHTML = "Cannot proceed transaction due to unavailability of notes.";
             }
 
         }
