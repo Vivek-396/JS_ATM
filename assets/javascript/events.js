@@ -1,5 +1,9 @@
-var note_2000=0,note_500=0,note_100=0,sum=0;
+var note_2000 = 0,
+    note_500 = 0,
+    note_100 = 0,
+    balance = 0;
 
+//Deposit Section
 
 function get_amount(){
     var a=Number(document.getElementById("note_2000").value);
@@ -19,4 +23,64 @@ function get_amount(){
         document.getElementById("note_500").value=0;
         document.getElementById("note_100").value=0;
     }
+}
+
+
+//Withdraw Section
+
+function getInputAmount() {
+
+    var amt = document.getElementById("myInput").value;
+
+    var amtTemp = parseInt(amt);
+    if (amt <= 0) {
+        document.getElementById("result").innerHTML = "Please enter suitable value.";
+    } else if (amtTemp != amt) {
+        document.getElementById("result").innerHTML = "Cannot proceed transaction for the input amount.";
+    } else {
+
+        if (amt > balance) {
+            document.getElementById("result").innerHTML = "Cannot proceed transaction due to low balance.";
+        } else {
+            var count_2000 = note_2000,
+                count_500 = note_500,
+                count_100 = note_100,
+                val = amt;
+
+            var temp = Math.floor(val / 2000);
+
+            while (temp > 0 && count_2000) {
+                val = val - 2000;
+                count_2000--;
+                temp = Math.floor(val / 2000);
+            }
+
+            temp = Math.floor(val / 500);
+            while (temp > 0 && count_500) {
+                val = val - 500;
+                count_500--;
+                temp = Math.floor(val / 500);
+            }
+
+            temp = Math.floor(val / 100);
+            while (temp > 0 && count_100) {
+                val = val - 100;
+                count_100--;
+                temp = Math.floor(val / 100);
+            }
+
+            if (val == 0) {
+                note_2000 = count_2000;
+                note_500 = count_500;
+                note_100 = count_100;
+                balance = balance - amt;
+
+                document.getElementById("result").innerHTML = "Transaction Successful." + "<br> Your current balance is : " + balance;
+            } else {
+                document.getElementById("result").innerHTML = "Cannot proceed transaction due to unavailability of notes.";
+            }
+
+        }
+    }
+
 }
