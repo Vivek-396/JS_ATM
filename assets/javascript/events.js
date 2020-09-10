@@ -6,22 +6,28 @@ var note_2000 = 0,
 //Deposit Section
 
 function get_amount(){
-    var a=Number(document.getElementById("note_2000").value);
-    var b=Number(document.getElementById("note_500").value);
-    var c=Number(document.getElementById("note_100").value);
-    if (a>=0 && b>=0 && c>=0){
-        note_2000+=a;
-        note_500+=b;
-        note_100+=c;
+    var a=(document.getElementById("note_2000").value);
+    var b=(document.getElementById("note_500").value);
+    var c=(document.getElementById("note_100").value);
+    var x=Number(a);
+    var y=Number(b);
+    var z=Number(c);
+    if(isNaN(x) || !Number.isInteger(x) || isNaN(y) || !Number.isInteger(y) || isNaN(z) || !(Number.isInteger(z)) || x<0 || y<0 || z<0){
+        document.getElementById("amount").innerHTML= "Please enter a  valid number";
+    }
+    else{
+        note_2000+=x;
+        note_500+=y;
+        note_100+=z;
         balance = (2000*note_2000) + (500*note_500) + (100*note_100);
         document.getElementById("amount").innerHTML=
         "Total 2000Rs. Note is :" + note_2000 +"<br>"+
         "Total 500Rs. Note is :" + note_500 +"<br>"+
         "Total 100Rs. Note is :" + note_100 +"<br>"+
         "Total amount is:" + balance;
-        document.getElementById("note_2000").value=0;
-        document.getElementById("note_500").value=0;
-        document.getElementById("note_100").value=0;
+        a=null;
+        b=null;
+        c=null;
     }
 }
 
