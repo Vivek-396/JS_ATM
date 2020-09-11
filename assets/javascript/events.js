@@ -86,6 +86,13 @@ function getInputAmount() {
                 note_2000 = count_2000;
                 note_500 = count_500;
                 note_100 = count_100;
+                
+                document.getElementById("amount").innerHTML =
+                    "Total 2000Rs. Note is :" + note_2000 + "<br>" +
+                    "Total 500Rs. Note is :" + note_500 + "<br>" +
+                    "Total 100Rs. Note is :" + note_100 + "<br>" +
+                    "Total amount is:" + balance;
+                
             } else {
                 element.innerHTML = "Cannot proceed transaction due to unavailability of notes.";
             }
