@@ -4,6 +4,7 @@ var note_2000 = 0,
     balance = 0;
 
 //Deposit Section
+document.getElementById("btn2").addEventListener("click", get_amount);
 
 document.getElementById("btn1").addEventListener("click",get_amount);
 
@@ -36,6 +37,7 @@ function get_amount(e){
 
 
 //Withdraw Section
+document.getElementById("btn").addEventListener("click", getInputAmount);
 
 function getInputAmount() {
 
