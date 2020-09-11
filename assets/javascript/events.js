@@ -5,7 +5,10 @@ var note_2000 = 0,
 
 //Deposit Section
 
-function get_amount(){
+document.getElementById("btn1").addEventListener("click",get_amount);
+
+function get_amount(e){
+    e.preventDefault();
     var a=(document.getElementById("note_2000"));
     var b=(document.getElementById("note_500"));
     var c=(document.getElementById("note_100"));
